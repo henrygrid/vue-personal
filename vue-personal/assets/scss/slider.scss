@@ -1,0 +1,112 @@
+/* Slider
+********************/
+
+.container {
+  min-height: 100vh;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center; */
+  position: relative;
+  overflow-x: hidden;
+}
+
+.slide {
+  width: 100%;
+  height: 100vh;
+  display: block;
+  position: fixed;
+}
+
+.slide div {
+  color: #F4F8F6;
+}
+
+.slide-1 {
+  background-color: #024;  /*dark blue*/
+}
+
+.slide-2 {
+  background-color: #FCBE2D; /*orange*/
+}
+
+.slide-3 {
+  background-color: #F4F8F6; /* whitish */
+}
+
+.slide-4 {
+  background-color: #7F85A0; /*teal*/
+}
+
+.slide-out {
+  animation: slow-slide-out 1.5s;
+}
+
+.current-slide {
+  z-index: 10;
+}
+
+.hidden-slide {
+  z-index: 5;
+  transform: translateX(0);
+}
+
+.next-slide {
+  z-index: 8;
+}
+
+.prev-slide {
+  z-index: 7;
+}
+
+.button-row {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  z-index: 100;
+}
+
+.buttons {
+  border: 1px solid white;
+  width: 10px;
+  height: 16px;
+  margin: 0 6px;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.buttons:active,
+.buttons:focus {
+  outline: none;
+}
+
+.button-filled {
+  background-color: #fff;
+}
+
+.slide-trigger {
+  cursor: pointer;
+}
+
+.title {
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
+  color: #35495e;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
+
+.links {
+  padding-top: 15px;
+}

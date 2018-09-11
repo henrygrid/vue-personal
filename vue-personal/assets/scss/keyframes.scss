@@ -1,0 +1,84 @@
+/* Keyframes
+********************/
+
+@keyframes slow-slide-out {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: scale(.8);
+  }
+
+  100% {
+    transform: translateX(-100%) scale(.8);
+  }
+}
+
+@keyframes slow-slide-in {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes fall {
+
+	100% {
+		transform: translateY(0);
+	}
+
+}
+
+@keyframes ham-top-to-cross {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(45deg);
+  }
+}
+
+@keyframes ham-top-to-burger {
+  from {
+    transform: rotate(45deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes ham-middle-to-cross {
+  from {
+    transform: translateY(0) rotate(0);
+  }
+
+  to {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+@keyframes ham-middle-to-burger {
+  from {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  to {
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes snowflake-rotate {
+  from {
+    transform: rotate(18deg);
+  }
+
+  to {
+    transform: rotate(198deg);
+  }
+}
