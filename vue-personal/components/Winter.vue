@@ -3,22 +3,52 @@
     <div class="home--wrapper">
       <div class="home__content">
         <section class="home__content__header">
-          <h1 class="home__content__header__heading">Henry Morrow - Web Developer</h1>
+          <div class="winter__day__wrapper">
+            <div class="winter__day__toggle__container">
+              <span class="winter__day__one__title">1 Day</span>
+              <label class="winter__switch" for="checkbox">
+                <input type="checkbox" id="winter-checkbox" @click="oneDay" />
+                <div class="winter__slider round"></div>
+              </label>
+              <span class="winter__day__five__title">5 Day</span>
+            </div>
+            <h1 class="winter__city">{{ cityName }}</h1>
+            <ul :class=" [ viewStatus < 3 ? 'one-day-list': 'five-day-list'] + ' winter__day__list'">
+              <li v-if="viewStatus === 1" class="winter__day__list__item">
+                <h1 class="winter__day__date">8/3</h1>
+                <div v-bind:class="weatherClass + ' winter__day__image'"></div>
+                <p class="winter__day__temp--high"></p>
+                <p class="winter__day__temp--low">15</p>
+              </li>
+              <!-- <li v-else-if="viewStatus === 5" v-for="day in weatherDays" class="winter__day__list__item">
+                <h1 class="winter__day__date">8/3</h1>
+                <div v-bind:class="getWeatherClass(day.weather[0].id) + ' winter__day__image'"></div>
+                <p class="winter__day__temp--high">{{day.main.temp_max}}</p>
+                <p class="winter__day__temp--low">15</p>
+              </li> -->
+            </ul>
+          </div>
+          <!-- <h1 class="home__content__header__heading">Henry Morrow - Web Developer</h1>
           <p class="home__content__header__description">Your year-round source for a great web presence.</p>
-          <div class="menu__button">
+          <a class="home__content__header__link" href="">View my work</a> -->
+          <!-- <div class="menu__button">
             <div class="snowflake"></div>
             <div class="ham-container" @click="toggleMenu">
               <span class="ham ham-top"></span>
               <span class="ham ham-middle"></span>
               <span class="ham ham-bottom"></span>
             </div>
-          </div>
+          </div> -->
         </section>
-        <section class="home__content__intro">
+        <!-- <section class="home__content__intro">
           <div class="home__content__intro__container">
-            <h1 class="home__content__intro__heading">You wanna know how I got them? So I had a wife. She was beautiful, like you, who tells me I worry too much, who tells me I ought to smile more, who gambles and gets in deep with the sharks. Hey. One day they carve her face. And we have no money for surgeries. She can't take it. I just wanna see her smile again. I just want her to know that I don't care about the scars. So, I do this to myself. And you know what? She can't stand the sight of me. She leaves. Now I see the funny side. Now I'm always smiling.</h1>
-          </div>
-        </section>
+            <h1 class="home__content__intro__heading">Nice to meet you</h1>
+            <p class="home__content__intro__text">I'm a developer, communicator and all around problem solver living in the Metro Detroit area. Let's start a conversation about how I can help you today.</p>
+          </div> -->
+        <!-- </section> -->
+        <footer class="winter-footer home__content__footer">
+          <div class="snowman"></div>
+        </footer>
       </div>
       <div class="snow">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1536" preserveAspectRatio="xMidYMax slice">
@@ -100,26 +130,66 @@
 import $ from 'jquery';
 
 export default {
-  name: "Home",
+  name: "Winter",
+  props: ["weatherData"],
   data() {
     return {
-      menuOpen: false
+      menuOpen: false,
+      cityName: "Detroit",
+      weatherClass: "rainy",
+      weatherClasses: [],
+      viewStatus: 1,
+      weather: this.$props,
+      weatherDays: this.$props.weatherData.list[0]
     }
   },
   methods: {
-    toggleMenu: function(e) {
-      if (!this.menuOpen) {
-        $(".ham-top").css("animation", "ham-top-to-cross 1s forwards");
-        $(".ham-middle").css("animation", "ham-middle-to-cross 1s forwards");
-        $(".ham-bottom").hide(1000);
-        this.menuOpen = true;
-      } else {
-        $(".ham-top").css("animation", "ham-top-to-burger 1s forwards");
-        $(".ham-middle").css("animation", "ham-middle-to-burger 1s forwards");
-        $(".ham-bottom").show(1000);
-        this.menuOpen = false;
-      }
+    getWeatherClass: function(weatherId) {
+      if (200 <= weatherId && weatherId < 600) {
+    		return "rainy";
+    	} else if (600 <= weatherId && weatherId < 800) {
+    		return "snowy";
+    	} else if (800 <= weatherId && weatherId < 802) {
+    		return "sunny";
+    	} else if (802 <= weatherId && weatherId < 804) {
+    		return "partly-cloudy";
+    	} else if (804 <= weatherId && weatherId < 900) {
+    		return "cloudy";
+    	} else {
+    		return "clear";
+    	}
+    },
+    oneDay: function() {
+      this.weatherDays = this.weather.weatherData.list;
+      console.log(this.weatherDays);
+      this.weatherClass = this.getWeatherClass(this.weatherDays[0].weather[0].id);
+    },
+    fiveDay: function() {
+      this.weatherDays = this.weather.weatherDay.list;
+      // $(this.weatherDays).map((day) => {
+      //   day.weather
+      // });
     }
+    // toggleMenu: function(e) {
+    //   if (!this.menuOpen) {
+    //     $(".ham-top").css("animation", "ham-top-to-cross 1s forwards");
+    //     $(".ham-middle").css("animation", "ham-middle-to-cross 1s forwards");
+    //     $(".ham-bottom").hide(1000);
+    //     $(".button-row").css("transform", "translateX(0)");
+    //     this.menuOpen = true;
+    //   } else {
+    //     $(".ham-top").css("animation", "ham-top-to-burger 1s forwards");
+    //     $(".ham-middle").css("animation", "ham-middle-to-burger 1s forwards");
+    //     $(".ham-bottom").show(1000);
+    //     $(".button-row").css("transform", "translateX(73px)");
+    //     this.menuOpen = false;
+    //   }
+    // }
+  },
+  mounted() {
+    // this.oneDay();
+  },
+  watched() {
   }
 }
 </script>
@@ -129,6 +199,7 @@ export default {
 @import '~/assets/scss/variables.scss';
 @import '~/assets/scss/palette.scss';
 @import '~/assets/scss/keyframes.scss';
+@import '~/assets/scss/fonts.scss';
 @import '~/assets/scss/winter.scss';
 
 </style>

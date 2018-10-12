@@ -1,2 +1,40 @@
-/* Fall 
+/* Fall
 ********************/
+
+.leaves {
+	position: absolute;
+	min-width: 100vw;
+	min-height: 100vh;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.leaves .svg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.leaves-top-layer {
+	will-change: transform;
+	transform: translateY(-768px);
+	animation: leaves 18s infinite linear;
+}
+
+.leaves-bottom-layer {
+	will-change: transform;
+	transform: translateY(-768px);
+	animation: leaves 15s infinite linear;
+}
+
+.fall-footer {
+  background: url('~/assets/images/fall-footer.svg') no-repeat;
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  position: relative;
+}

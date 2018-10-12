@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="386px" height="468px" viewBox="0 0 386 468" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.1 (67048) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-3.2%" y="-4.6%" width="106.3%" height="109.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-22.6%" y="-15.0%" width="145.3%" height="130.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-22.6%" y="-15.0%" width="145.3%" height="130.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-22.6%" y="-15.0%" width="145.3%" height="130.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-22.6%" y="-15.0%" width="145.3%" height="130.0%" filterUnits="objectBoundingBox" id="filter-5">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-297.000000, -282.000000)">
+            <g id="Group" transform="translate(301.000000, 284.000000)">
+                <g id="cloud" filter="url(#filter-1)" fill="#FFFFFF">
+                    <path d="M168.75,262 L73.20375,262 C32.83875,262 0,226.593611 0,183.065222 C0,152.833333 18.25875,121.451556 43.42275,108.446167 L47.25,106.473889 L47.25,101.888889 C47.25,100.964611 47.304,100.025778 47.35125,99.0796667 L47.412,97.9152222 L47.331,96.3868889 C47.2905,95.7973889 47.25,95.2078889 47.25,94.6111111 C47.25,66.5261667 68.45175,43.6666667 94.5,43.6666667 C96.58575,43.6666667 98.6445,43.8631667 100.68975,44.1542778 C101.21625,44.2270556 101.74275,44.3216667 102.2625,44.4162778 C104.06475,44.7365 105.84,45.1586111 107.58825,45.7044444 C107.8245,45.7772222 108.0675,45.8281667 108.30375,45.9009444 C110.2275,46.5341111 112.104,47.3346667 113.94,48.2371111 C114.41925,48.47 114.885,48.7247222 115.3575,48.9721667 C116.9775,49.8382222 118.56375,50.7843333 120.096,51.8541667 C133.10325,60.9368333 141.75,76.6932222 141.75,94.6111111 C141.75,98.6357222 144.76725,101.888889 148.5,101.888889 C152.23275,101.888889 155.25,98.6357222 155.25,94.6111111 C155.25,74.5681111 146.8395,56.6283889 133.65,44.6055 C153.00225,17.3138333 184.869,0 216.57375,0 C268.8525,0 312.2685,44.6491667 316.79775,101.073778 C309.89925,100.549778 299.57175,100.2805 289.2375,101.976222 C285.552,102.580278 283.02075,106.291944 283.581,110.265611 C284.08725,113.868111 286.96275,116.451722 290.24325,116.451722 C290.58075,116.451722 290.925,116.422611 291.2625,116.364389 C306.29475,113.911778 321.9615,116.211556 322.8795,116.349833 C354.3075,122.790667 378,154.005056 378,189.018444 C378,229.257278 347.63175,262 310.311,262 L222.75,262 L168.75,262 Z" id="Path"></path>
+                </g>
+                <g id="drop" filter="url(#filter-2)" transform="translate(25.000000, 300.000000)">
+                    <path d="M53,51.5 C53,67.3332812 41.0672999,80 26.5,80 C11.9327001,80 0,67.3332812 0,51.5 C0,35.6667188 26.5,0 26.5,0 C26.5,0 53,35.8332812 53,51.5 Z" id="Path" fill="#84DBFF"></path>
+                    <path d="M26.6595745,73 C15.893617,73 7,63.4681383 7,51.5531915 C7,50.1915426 8.09224734,49 9.34042553,49 C10.5886037,49 11.6808511,50.1915426 11.6808511,51.5531915 C11.6808511,60.5744149 18.3901197,67.893617 26.6595745,67.893617 C27.9077527,67.893617 29,69.0851596 29,70.4468085 C29,71.8084574 27.9077527,73 26.6595745,73 Z" id="Path" fill="#FFFFFF"></path>
+                </g>
+                <g id="drop-copy-3" filter="url(#filter-3)" transform="translate(325.000000, 380.000000)">
+                    <path d="M53,51.5 C53,67.3332812 41.0672999,80 26.5,80 C11.9327001,80 0,67.3332812 0,51.5 C0,35.6667188 26.5,0 26.5,0 C26.5,0 53,35.8332812 53,51.5 Z" id="Path" fill="#84DBFF"></path>
+                    <path d="M26.6595745,73 C15.893617,73 7,63.4681383 7,51.5531915 C7,50.1915426 8.09224734,49 9.34042553,49 C10.5886037,49 11.6808511,50.1915426 11.6808511,51.5531915 C11.6808511,60.5744149 18.3901197,67.893617 26.6595745,67.893617 C27.9077527,67.893617 29,69.0851596 29,70.4468085 C29,71.8084574 27.9077527,73 26.6595745,73 Z" id="Path" fill="#FFFFFF"></path>
+                </g>
+                <g id="drop-copy-2" filter="url(#filter-4)" transform="translate(230.000000, 300.000000)">
+                    <path d="M53,51.5 C53,67.3332812 41.0672999,80 26.5,80 C11.9327001,80 0,67.3332812 0,51.5 C0,35.6667188 26.5,0 26.5,0 C26.5,0 53,35.8332812 53,51.5 Z" id="Path" fill="#84DBFF"></path>
+                    <path d="M26.6595745,73 C15.893617,73 7,63.4681383 7,51.5531915 C7,50.1915426 8.09224734,49 9.34042553,49 C10.5886037,49 11.6808511,50.1915426 11.6808511,51.5531915 C11.6808511,60.5744149 18.3901197,67.893617 26.6595745,67.893617 C27.9077527,67.893617 29,69.0851596 29,70.4468085 C29,71.8084574 27.9077527,73 26.6595745,73 Z" id="Path" fill="#FFFFFF"></path>
+                </g>
+                <g id="drop-copy" filter="url(#filter-5)" transform="translate(136.000000, 365.000000)">
+                    <path d="M53,51.5 C53,67.3332812 41.0672999,80 26.5,80 C11.9327001,80 0,67.3332812 0,51.5 C0,35.6667188 26.5,0 26.5,0 C26.5,0 53,35.8332812 53,51.5 Z" id="Path" fill="#84DBFF"></path>
+                    <path d="M26.6595745,73 C15.893617,73 7,63.4681383 7,51.5531915 C7,50.1915426 8.09224734,49 9.34042553,49 C10.5886037,49 11.6808511,50.1915426 11.6808511,51.5531915 C11.6808511,60.5744149 18.3901197,67.893617 26.6595745,67.893617 C27.9077527,67.893617 29,69.0851596 29,70.4468085 C29,71.8084574 27.9077527,73 26.6595745,73 Z" id="Path" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

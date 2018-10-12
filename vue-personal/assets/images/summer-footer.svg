@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="337px" viewBox="0 0 1024 337" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Summer" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(0.000000, -687.000000)" fill="#EED6AF" fill-rule="nonzero">
+            <path d="M0,724 C66.5413406,740.276467 115.566246,747.422079 147.074717,745.436835 C427.704474,727.755291 643.868206,687.791805 795.130956,687.791805 C971.868863,687.791805 1048.15854,699.861203 1024,724 L1024,1024 L0,1024 L0,724 Z" id="Rectangle"></path>
+        </g>
+    </g>
+</svg>

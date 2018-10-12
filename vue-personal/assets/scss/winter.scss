@@ -34,16 +34,41 @@
 .home__content__header__heading {
   position: relative;
   align-self: center;
+  font-size: 40px;
+  font-family: 'Varela', 'Helvetica', 'Arial', sans-serif;
+  margin-bottom: 25px;
 }
 
 .home__content__header__description {
   position: relative;
   align-self: center;
+  font-family: 'Noto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 20px;
+  margin-bottom: 25px;
+}
+
+.home__content__header__link {
+  display: inline-block;
+  align-self: center;
+  padding: 10px;
+  color: #024;
+  background-color: #fff;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: color .5s, background-color .5s, border .5s;
+}
+
+.home__content__header__link:hover {
+  color: #fff;
+  background-color: #024;
+  border: 2px solid #fff;
 }
 
 .home__content__intro {
   padding: 0 100px;
   margin-bottom: 50px;
+  font-family: 'Noto', 'Helvetica', 'Arial', sans-serif;
 }
 
 .home__content__intro__container {
@@ -55,14 +80,176 @@
   // color: #000;
 }
 
+.winter__day__wrapper {
+  background-color: rgb(255, 255, 255);
+  width: 80%;
+  margin: 0 auto;
+  color: #024;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+}
+
+.winter__city {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.winter__day__list {
+  padding-left: 0;
+}
+
+.one-day-list {
+  text-align: center;
+}
+
+.winter__day__list__item {
+  display: inline-block;
+  background-color: #024;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  width: 18%;
+  text-align: center;
+  margin-right: 2.5%;
+}
+
+.winter__day__list__item:last-child {
+  margin-right: 0;
+}
+
+
+.winter__day__date,
+.winter__day__image,
+.winter__day__temp--high,
+.winter__day__temp--low {
+  margin-bottom: 20px;
+}
+
+.winter__switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.winter__switch #winter-checkbox {
+  width: 60px;
+  height: 34px;
+  position: relative;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.winter__slider {
+  background-color: #024;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.winter__slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+#winter-checkbox:checked + .winter__slider {
+  // background-color: #024;
+}
+
+#winter-checkbox:checked + .winter__slider:before {
+  transform: translateX(26px);
+}
+
+.winter__slider.round {
+  border-radius: 34px;
+}
+
+.winter__slider.round:before {
+  border-radius: 50%;
+}
+
+/*  .winter__day__toggle__container {
+   text-align: center;
+   vertical-align: middle;
+    margin-bottom: 30px;
+} */
+
+.winter__day__toggle__container {
+  position: absolute;
+  margin-bottom: 30px;
+  right: 20px;
+}
+
+.winter__day__one__title {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+  bottom: 11px;
+}
+
+.winter__day__five__title {
+  display: inline-block;
+  margin-left: 20px;
+  position: relative;
+  bottom: 11px;
+}
+
+.winter__day__image {
+  width: 100%;
+  height: 100px;
+}
+
+.snowy {
+  background: url('~/assets/images/snowy.svg') no-repeat;
+  background-position: 32px 0;
+  background-size: 93px;
+}
+
+.cloudy {
+  background: url('~/assets/images/cloudy.svg') no-repeat;
+  background-position: 32px 0;
+  background-size: 93px;
+}
+
+.partly-cloudy {
+  background: url('~/assets/images/partly-cloudy.svg') no-repeat;
+  background-position: 32px 0;
+  background-size: 93px;
+}
+
+.rainy {
+  background: url('~/assets/images/rainy.svg') no-repeat;
+  background-position: 38px 0;
+  background-size: 82px;
+}
+
+.sunny {
+  background: url('~/assets/images/sunny.svg') no-repeat;
+  background-position: 29px 0;
+  background-size: 93px;
+}
+
 .menu__button {
   position: fixed;
   top: 0px;
   right: 0px;
-
+  z-index: 100;
 }
 
-.snowflake {
+.menu-cover {
   position: relative;
   overflow: hidden;
   width: 250px;
@@ -70,22 +257,37 @@
 }
 
 .snowflake::before {
+  background: url('~/assets/images/snowflake.svg') no-repeat;
+  -webkit-transform: rotate(18deg);
+  transform: rotate(18deg);
+}
+
+.menu-cover::before {
   content: "";
   position: absolute;
-  background: url('~/assets/images/snowflake.svg') no-repeat;
   display: inline-block;
   width: 339px;
   height: 339px;
   background-size: 339px;
   // background-position: 1px -22px;
-  -webkit-transform: rotate(30deg);
-  transform: rotate(18deg);
   top: -130px;
   right: -143px;
 }
 
 .menu__button:hover .snowflake::before {
   animation: snowflake-rotate 1.5s;
+}
+
+.menu__button:hover .sun::before {
+  animation: snowflake-rotate 1.5s;
+}
+
+.hide__menu-button {
+  animation: menu-leave .75s forwards;
+}
+
+.show__menu-button {
+  animation: menu-show .75s forwards;
 }
 
 .ham-container {
@@ -143,4 +345,23 @@
 	will-change: transform;
 	transform: translateY(-768px);
 	animation: fall 45s infinite linear;
+}
+
+.winter-footer {
+  background: url('~/assets/images/winter-footer.svg') no-repeat;
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  position: relative;
+}
+
+.snowman {
+  width: 150px;
+  height: 150px;
+  background: url('~/assets/images/snowman.svg') no-repeat;
+  display: inline-block;
+  background-size: 100px;
+  position: absolute;
+  top: 90px;
+  left: 80px;
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="305px" viewBox="0 0 1024 305" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Spring" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(0.000000, -719.000000)" fill-rule="nonzero">
+            <g id="Group-2" transform="translate(0.000000, 719.000000)">
+                <rect id="Rectangle" fill="#7CBB5D" x="0" y="0" width="1024" height="305"></rect>
+                <g id="Group" transform="translate(810.000000, 39.000000)" stroke="#177245" stroke-linecap="square">
+                    <path d="M10,1 C12.3594598,2.32355561 13.9594618,3.52568332 14.8000061,4.60638313 C15.6405504,5.68708295 16.3738817,7.48495524 17,10" id="Line" transform="translate(13.500000, 5.500000) scale(-1, 1) translate(-13.500000, -5.500000) "></path>
+                    <path d="M0.5,0.5 C2.85945976,1.82355561 4.4594618,3.02568332 5.3000061,4.10638313 C6.1405504,5.18708295 6.8738817,6.98495524 7.5,9.5" id="Line"></path>
+                </g>
+                <g id="Group" transform="translate(686.000000, 258.000000)" stroke="#177245" stroke-linecap="square">
+                    <path d="M10,1 C12.3594598,2.32355561 13.9594618,3.52568332 14.8000061,4.60638313 C15.6405504,5.68708295 16.3738817,7.48495524 17,10" id="Line" transform="translate(13.500000, 5.500000) scale(-1, 1) translate(-13.500000, -5.500000) "></path>
+                    <path d="M0.5,0.5 C2.85945976,1.82355561 4.4594618,3.02568332 5.3000061,4.10638313 C6.1405504,5.18708295 6.8738817,6.98495524 7.5,9.5" id="Line"></path>
+                </g>
+                <g id="Group" transform="translate(447.000000, 93.000000)" stroke="#177245" stroke-linecap="square">
+                    <path d="M10,1 C12.3594598,2.32355561 13.9594618,3.52568332 14.8000061,4.60638313 C15.6405504,5.68708295 16.3738817,7.48495524 17,10" id="Line" transform="translate(13.500000, 5.500000) scale(-1, 1) translate(-13.500000, -5.500000) "></path>
+                    <path d="M0.5,0.5 C2.85945976,1.82355561 4.4594618,3.02568332 5.3000061,4.10638313 C6.1405504,5.18708295 6.8738817,6.98495524 7.5,9.5" id="Line"></path>
+                </g>
+                <g id="Group" transform="translate(122.000000, 52.000000)" stroke="#177245" stroke-linecap="square">
+                    <path d="M10,1 C12.3594598,2.32355561 13.9594618,3.52568332 14.8000061,4.60638313 C15.6405504,5.68708295 16.3738817,7.48495524 17,10" id="Line" transform="translate(13.500000, 5.500000) scale(-1, 1) translate(-13.500000, -5.500000) "></path>
+                    <path d="M0.5,0.5 C2.85945976,1.82355561 4.4594618,3.02568332 5.3000061,4.10638313 C6.1405504,5.18708295 6.8738817,6.98495524 7.5,9.5" id="Line"></path>
+                </g>
+                <g id="Group" transform="translate(366.000000, 222.000000)" stroke="#177245" stroke-linecap="square">
+                    <path d="M10,1 C12.3594598,2.32355561 13.9594618,3.52568332 14.8000061,4.60638313 C15.6405504,5.68708295 16.3738817,7.48495524 17,10" id="Line" transform="translate(13.500000, 5.500000) scale(-1, 1) translate(-13.500000, -5.500000) "></path>
+                    <path d="M0.5,0.5 C2.85945976,1.82355561 4.4594618,3.02568332 5.3000061,4.10638313 C6.1405504,5.18708295 6.8738817,6.98495524 7.5,9.5" id="Line"></path>
+                </g>
+                <ellipse id="Oval" fill="#84DBFF" cx="340" cy="76.5" rx="29" ry="23.5"></ellipse>
+                <ellipse id="Oval" fill="#84DBFF" cx="197" cy="246.5" rx="49" ry="27.5"></ellipse>
+                <ellipse id="Oval" fill="#84DBFF" cx="90" cy="132" rx="58" ry="32"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

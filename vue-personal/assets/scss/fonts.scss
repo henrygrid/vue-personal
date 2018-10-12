@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Noto';
+  font-style: normal;
+  src: url('~/assets/fonts/Noto/NotoSerif-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Noto Bold';
+  font-style: normal;
+  src: url('~/assets/fonts/Noto/NotoSerif-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Varela';
+  font-style: normal;
+  src: url('~/assets/fonts/Valera/VarelaRound-Regular.ttf');
+}
+
+@mixin font($type:'primary'){
+  @if $type == 'primary' {
+    font-family: 'Noto', 'Helvetica', 'Arial', sans-serif;
+  }
+
+  @if $type == 'primary-bold' {
+    font-family: 'Noto', 'Helvetica', 'Arial', sans-serif;
+  }
+
+  @if $type == 'secondary'  {
+    font-family: 'Varela', 'Helvetica', 'Arial', sans-serif;
+  }
+}

@@ -19,47 +19,161 @@
           class="button--grey">GitHub</a>
       </div>
     </div> -->
-    <Home></Home>
-    <Projects></Projects>
-    <Blog></Blog>
-    <Contact></Contact>
-    <span class="button-row">
+    <Winter :weatherData=weatherData></Winter>
+    <Spring :weatherData=weatherData></Spring>
+    <Summer :weatherData=weatherData></Summer>
+    <Fall :weatherData=weatherData></Fall>
+    <div class="search__box">
+      <input type="search" class="search__input" v-on:keyup.enter="getWeather" placeholder="Enter City"/>
+      <span class="search__icon" @click="getWeather"></span>
+    </div>
+    <div class="menu__button">
+      <div class="snowflake menu-cover"></div>
+      <div class="ham-container" @click="toggleMenu">
+        <span class="ham ham-top"></span>
+        <span class="ham ham-middle"></span>
+        <span class="ham ham-bottom"></span>
+      </div>
+    </div>
+    <!-- <span class="button-row">
       <button @click="prevSlide" class="slide-trigger prev">-</button>
-      <button @click="selectSlide" class="buttons slide-trigger button-filled first-button" id="button-1"></button>
-      <button @click="selectSlide" class="buttons slide-trigger" id="button-2"></button>
-      <button @click="selectSlide" class="buttons slide-trigger" id="button-3"></button>
-      <button @click="selectSlide" class="buttons slide-trigger last-button" id="button-4"></button>
+      <div class="button-wrapper" @click="selectSlide">
+        <span class="button-title">Winter</span>
+        <button class="buttons slide-trigger button-filled first-button" id="button-1"></button>
+      </div>
+      <div class="button-wrapper" @click="selectSlide">
+        <span class="button-title">Spring</span>
+        <button class="buttons slide-trigger" id="button-2"></button>
+      </div>
+      <div class="button-wrapper" @click="selectSlide">
+        <span class="button-title">Summer</span>
+        <button class="buttons slide-trigger" id="button-3"></button>
+      </div>
+      <div class="button-wrapper" @click="selectSlide">
+        <span class="button-title">Fall</span>
+        <button class="buttons slide-trigger last-button" id="button-4"></button>
+      </div>
       <button @click="nextSlide" class="next slide-trigger">+</button>
-    </span>
+    </span> -->
     <!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+    <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>  -->
+    <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>  -->
+    <!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>  -->
+    <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">Vectors Market</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>  -->
+    <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+    <!-- -->
   </div>
 </template>
 
 <script>
-import Home from '~/components/Home.vue'
-import Projects from '~/components/Projects.vue'
-import Blog from '~/components/Blog.vue'
-import Contact from '~/components/Contact.vue'
+import Winter from '~/components/Winter.vue'
+import Spring from '~/components/Spring.vue'
+import Summer from '~/components/Summer.vue'
+import Fall from '~/components/Fall.vue'
 import $ from 'jquery'
 
 export default {
   components: {
-    Home,
-    Projects,
-    Blog,
-    Contact
+    Winter,
+    Spring,
+    Summer,
+    Fall
+  },
+  data() {
+    return {
+      menuOpen: false,
+      currentWeather: "snowy",
+      monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      weatherData: {},
+      weatherOne: {},
+      weatherFive: []
+    }
+  },
+  mounted() {
+    let city = "detroit";
+    let vm = this;
+    $.getJSON('http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',us&units=imperial&APPID=f3ca74b01a93f4ec83050fe63dd88908', (data) => {
+      vm.weatherData = data;
+      console.log(vm.weatherData);
+    });
   },
   methods: {
+    toTitleCase: function(str) {
+      return str.replace(/\w\S*/g, function(txt) {
+    	    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    	});
+    },
+    getSearchLocation: function() {
+      let city = $('.search__input').val();
+    	city = this.toTitleCase(city).replace(/\s+/g, '+');
+    	return city;
+    },
+    getWeather: function() {
+      let city = this.getSearchLocation();
+      let vm = this;
+      let weatherData;
+      console.log(city);
+      $.getJSON('http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',us&units=imperial&APPID=f3ca74b01a93f4ec83050fe63dd88908', (data) => {
+        vm.weatherData = data;
+        console.log(vm.weatherData);
+      });
+    },
+    toggleMenu: function(e) {
+      if (!this.menuOpen) {
+        $(".ham-top").css("animation", "ham-top-to-cross 1s forwards");
+        $(".ham-middle").css("animation", "ham-middle-to-cross 1s forwards");
+        $(".ham-bottom").hide(1000);
+        $(".button-row").css("transform", "translateX(-10px)");
+        this.menuOpen = true;
+      } else {
+        $(".ham-top").css("animation", "ham-top-to-burger 1s forwards");
+        $(".ham-middle").css("animation", "ham-middle-to-burger 1s forwards");
+        $(".ham-bottom").show(1000);
+        $(".button-row").css("transform", "translateX(120px)");
+        this.menuOpen = false;
+      }
+    },
     triggerSlide: function(e, slideLoop, direction) {
       e.preventDefault();
-      let currentButton = e.target;
       let button = $(".slide-trigger");
       let slideNumber;
+      let currentButton = $(e.target).find("button")[0];
+      let primaryColor;
+      let secondaryColor;
+      let menuIcons = [
+        {
+          title: 'snowflake',
+          backgroundColor: '#024',
+          menuColor: '#fff'
+        },
+        {
+          title: 'cloud',
+          backgroundColor: '#42d2d2',
+          menuColor: '#fff'
+        },
+        {
+          title: 'sun',
+          backgroundColor: '#69d2e7',
+          menuColor: '#EFC334'
+        },
+        {
+          title: 'leaf-menu',
+          backgroundColor: '#599ed9',
+          menuColor: '#93DA62'
+        }
+      ];
+      let currentMenu;
+
+      $(menuIcons).each(function() {
+        if($(".menu-cover").hasClass(this.title)) {
+          currentMenu = this.title;
+        }
+      });
 
       $(".buttons").removeClass("button-filled");
 
       $(".buttons").each(function(i) {
-        if(e.target === this) {
+        if(currentButton === this) {
           slideNumber = i + 1;
           $(this).addClass("button-filled");
         }
@@ -67,6 +181,31 @@ export default {
 
       if ($(".slide")[slideNumber - 1] === $(".current-slide")[0]) {
         return;
+      }
+
+      let slideType;
+
+      switch (slideNumber) {
+        case 1:
+          slideType = "snowflake";
+          primaryColor = '#fff';
+          secondaryColor = '#fff';
+          break;
+        case 2:
+          slideType = "cloud";
+          primaryColor = "#42d2d2";
+          secondaryColor = '#fff';
+          break;
+        case 3:
+          slideType = "sun";
+          primaryColor = "#69d2e7";
+          secondaryColor = '#fff';
+          break;
+        case 4:
+          slideType = "leaf-menu";
+          primaryColor = "#599ed9";
+          secondaryColor = '#fff';
+          break;
       }
 
       $(".slide").each(function(i) {
@@ -89,7 +228,6 @@ export default {
             case "number":
               nextSlide = $(".slide-" + slideNumber);
               break;
-
         }
 
         if($(this).hasClass("current-slide")) {
@@ -123,8 +261,8 @@ export default {
             $(this).addClass("slide-out");
             $(button).prop("disabled", true);
             $("#button-" + buttonNumber).addClass("button-filled");
-            console.log(nextSlide);
-            console.log(this);
+            $(".menu__button").removeClass("show__menu-button");
+            $(".menu__button").addClass("hide__menu-button");
 
             $(this).one("animationend", function(e) {
               $(this).removeClass("current-slide");
@@ -132,6 +270,13 @@ export default {
               $(this).addClass("hidden-slide");
               $(nextSlide).removeClass("next-slide");
               $(nextSlide).addClass("current-slide");
+              $(".menu-cover").removeClass(currentMenu);
+              $(".menu-cover").addClass(slideType);
+              $(".ham").css("background-color", primaryColor);
+              $(".button-title").css("color", secondaryColor);
+              $(".buttons, .button-filled").css("background-color", secondaryColor);
+              $(".menu__button").removeClass("hide__menu-button");
+              $(".menu__button").addClass("show__menu-button");
               $(button).prop("disabled", false);
             });
           }

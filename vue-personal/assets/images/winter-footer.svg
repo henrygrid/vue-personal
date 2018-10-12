@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="332px" viewBox="0 0 1024 332" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(0.000000, -691.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M0,727 C50.5854805,703.590491 135.38132,691.885736 254.387519,691.885736 C343.459253,691.885736 479.358356,745.259384 721.54546,756.547615 C775.806904,759.076717 876.625084,749.227511 1024,727 L1024,1023 L0,1023 L0,727 Z" id="Rectangle-2"></path>
+        </g>
+    </g>
+</svg>
