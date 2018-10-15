@@ -31,6 +31,138 @@
 	animation: fly 15s infinite linear;
 }
 
+.summer__day__wrapper {
+  background-color: rgb(255, 255, 255);
+  width: 80%;
+  margin: 0 auto;
+  color: #000;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+}
+
+.summer__city {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.summer__day__list {
+  padding-left: 0;
+}
+
+.one-day-list {
+  text-align: center;
+}
+
+.summer__day__list__item {
+  display: inline-block;
+  background-color: #69d2e7;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  width: 18%;
+  text-align: center;
+  margin-right: 2.5%;
+}
+
+.summer__day__list__item:last-child {
+  margin-right: 0;
+}
+
+
+.summer__day__date,
+.summer__day__image,
+.summer__day__temp--high,
+.summer__day__temp--low {
+  margin-bottom: 20px;
+}
+
+.summer__switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.summer__switch #summer-checkbox {
+  width: 60px;
+  height: 34px;
+  position: relative;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.summer__slider {
+  background-color: #69d2e7; 
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.summer__slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+#summer-checkbox:checked + .summer__slider {
+  // background-color: #024;
+}
+
+#summer-checkbox:checked + .summer__slider:before {
+  transform: translateX(26px);
+}
+
+.summer__slider.round {
+  border-radius: 34px;
+}
+
+.summer__slider.round:before {
+  border-radius: 50%;
+}
+
+/*  .summer__day__toggle__container {
+   text-align: center;
+   vertical-align: middle;
+    margin-bottom: 30px;
+} */
+
+.summer__day__toggle__container {
+  position: absolute;
+  margin-bottom: 30px;
+  right: 20px;
+}
+
+.summer__day__one__title {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+  bottom: 11px;
+}
+
+.summer__day__five__title {
+  display: inline-block;
+  margin-left: 20px;
+  position: relative;
+  bottom: 11px;
+}
+
+.summer__day__image {
+  width: 100%;
+  height: 100px;
+}
+
 .summer-footer {
   background: url('~/assets/images/summer-footer.svg') no-repeat;
   width: 100%;

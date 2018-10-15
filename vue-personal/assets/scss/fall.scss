@@ -31,6 +31,138 @@
 	animation: leaves 15s infinite linear;
 }
 
+.fall__day__wrapper {
+  background-color: rgb(255, 255, 255);
+  width: 80%;
+  margin: 0 auto;
+  color: #000;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+}
+
+.fall__city {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+.fall__day__list {
+  padding-left: 0;
+}
+
+.one-day-list {
+  text-align: center;
+}
+
+.fall__day__list__item {
+  display: inline-block;
+  background-color: #599ed9;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  width: 18%;
+  text-align: center;
+  margin-right: 2.5%;
+}
+
+.fall__day__list__item:last-child {
+  margin-right: 0;
+}
+
+
+.fall__day__date,
+.fall__day__image,
+.fall__day__temp--high,
+.fall__day__temp--low {
+  margin-bottom: 20px;
+}
+
+.fall__switch {
+  display: inline-block;
+  height: 34px;
+  position: relative;
+  width: 60px;
+}
+
+.fall__switch #fall-checkbox {
+  width: 60px;
+  height: 34px;
+  position: relative;
+  z-index: 100;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fall__slider {
+  background-color: #599ed9;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+}
+
+.fall__slider:before {
+  background-color: #fff;
+  bottom: 4px;
+  content: "";
+  height: 26px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 26px;
+}
+
+#fall-checkbox:checked + .fall__slider {
+  // background-color: #024;
+}
+
+#fall-checkbox:checked + .fall__slider:before {
+  transform: translateX(26px);
+}
+
+.fall__slider.round {
+  border-radius: 34px;
+}
+
+.fall__slider.round:before {
+  border-radius: 50%;
+}
+
+/*  .fall__day__toggle__container {
+   text-align: center;
+   vertical-align: middle;
+    margin-bottom: 30px;
+} */
+
+.fall__day__toggle__container {
+  position: absolute;
+  margin-bottom: 30px;
+  right: 20px;
+}
+
+.fall__day__one__title {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+  bottom: 11px;
+}
+
+.fall__day__five__title {
+  display: inline-block;
+  margin-left: 20px;
+  position: relative;
+  bottom: 11px;
+}
+
+.fall__day__image {
+  width: 100%;
+  height: 100px;
+}
+
 .fall-footer {
   background: url('~/assets/images/fall-footer.svg') no-repeat;
   width: 100%;

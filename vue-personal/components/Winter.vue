@@ -3,29 +3,33 @@
     <div class="home--wrapper">
       <div class="home__content">
         <section class="home__content__header">
-          <div class="winter__day__wrapper">
+          <div v-if="$props.searchCommitted === true" class="winter__day__wrapper">
             <div class="winter__day__toggle__container">
               <span class="winter__day__one__title">1 Day</span>
               <label class="winter__switch" for="checkbox">
-                <input type="checkbox" id="winter-checkbox" @click="oneDay" />
+                <input type="checkbox" id="winter-checkbox" @click="viewToggle" />
                 <div class="winter__slider round"></div>
               </label>
               <span class="winter__day__five__title">5 Day</span>
             </div>
-            <h1 class="winter__city">{{ cityName }}</h1>
-            <ul :class=" [ viewStatus < 3 ? 'one-day-list': 'five-day-list'] + ' winter__day__list'">
-              <li v-if="viewStatus === 1" class="winter__day__list__item">
-                <h1 class="winter__day__date">8/3</h1>
+            <h1 class="winter__city">{{ weather.weatherData.city.name }}</h1>
+            <ul v-if="viewStatus === 1" :class=" [ viewStatus < 3 ? 'one-day-list': 'five-day-list'] + ' winter__day__list'">
+              <li class="winter__day__list__item">
+                <h1 class="winter__day__date">{{ getWeatherMonth($props.weatherData.list[0].dt_txt) }} {{ getWeatherDay($props.weatherData.list[0].dt_txt) }}</h1>
                 <div v-bind:class="weatherClass + ' winter__day__image'"></div>
-                <p class="winter__day__temp--high"></p>
-                <p class="winter__day__temp--low">15</p>
+                <p class="winter__day__temp--high">{{ Math.floor($props.weatherData.list[0].main.temp) }} &#8457;</p>
+                <p class="winter__day__temp--low">{{ Math.floor($props.weatherData.list[0].wind.speed) }} mph</p>
               </li>
-              <!-- <li v-else-if="viewStatus === 5" v-for="day in weatherDays" class="winter__day__list__item">
-                <h1 class="winter__day__date">8/3</h1>
-                <div v-bind:class="getWeatherClass(day.weather[0].id) + ' winter__day__image'"></div>
-                <p class="winter__day__temp--high">{{day.main.temp_max}}</p>
-                <p class="winter__day__temp--low">15</p>
-              </li> -->
+            </ul>
+            <ul v-else-if="viewStatus === 5" :class=" [ viewStatus < 3 ? 'one-day-list': 'five-day-list'] + ' winter__day__list'">
+              <li v-for="(day, index) in getFiveDay($props.weatherData.list)" v-bind:key="`day-${index}`"  class="winter__day__list__item">
+                <div>
+                  <h1 class="winter__day__date">{{ getWeatherMonth(day.dt_txt) }} {{ getWeatherDay(day.dt_txt) }}</h1>
+                  <div v-bind:class="getWeatherClass(day.weather[0].id) + ' winter__day__image'"></div>
+                  <p class="winter__day__temp--high">{{ Math.floor(day.main.temp) }} &#8457;</p>
+                  <p class="winter__day__temp--low">{{ Math.floor(day.wind.speed) }} mph</p>
+                </div>
+              </li>
             </ul>
           </div>
           <!-- <h1 class="home__content__header__heading">Henry Morrow - Web Developer</h1>
@@ -131,16 +135,16 @@ import $ from 'jquery';
 
 export default {
   name: "Winter",
-  props: ["weatherData"],
+  props: ["weatherData", "searchCommitted"],
   data() {
     return {
       menuOpen: false,
-      cityName: "Detroit",
       weatherClass: "rainy",
       weatherClasses: [],
+      monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
       viewStatus: 1,
       weather: this.$props,
-      weatherDays: this.$props.weatherData.list[0]
+      // weatherDays: this.$props.weatherData.list[0]
     }
   },
   methods: {
@@ -159,38 +163,30 @@ export default {
     		return "clear";
     	}
     },
-    oneDay: function() {
-      this.weatherDays = this.weather.weatherData.list;
-      console.log(this.weatherDays);
-      this.weatherClass = this.getWeatherClass(this.weatherDays[0].weather[0].id);
+    viewToggle: function() {
+      if(this.viewStatus === 5) {
+        this.viewStatus = 1;
+      } else if (this.viewStatus === 1) {
+        this.viewStatus = 5;
+      }
     },
-    fiveDay: function() {
-      this.weatherDays = this.weather.weatherDay.list;
-      // $(this.weatherDays).map((day) => {
-      //   day.weather
-      // });
+    getWeatherMonth: function(dateText) {
+      let date = new Date(dateText);
+      return this.monthNames[date.getMonth()];
+    },
+    getWeatherDay: function(dateText) {
+      let date = new Date(dateText);
+      return date.getDate();
+    },
+    getFiveDay: function(sampleArr) {
+      let arr = sampleArr;
+      let arr2 = [];
+      for (let i = 7; i < arr.length; i += 8) {
+        arr2.push(arr[i]);
+      }
+      return arr2;
     }
-    // toggleMenu: function(e) {
-    //   if (!this.menuOpen) {
-    //     $(".ham-top").css("animation", "ham-top-to-cross 1s forwards");
-    //     $(".ham-middle").css("animation", "ham-middle-to-cross 1s forwards");
-    //     $(".ham-bottom").hide(1000);
-    //     $(".button-row").css("transform", "translateX(0)");
-    //     this.menuOpen = true;
-    //   } else {
-    //     $(".ham-top").css("animation", "ham-top-to-burger 1s forwards");
-    //     $(".ham-middle").css("animation", "ham-middle-to-burger 1s forwards");
-    //     $(".ham-bottom").show(1000);
-    //     $(".button-row").css("transform", "translateX(73px)");
-    //     this.menuOpen = false;
-    //   }
-    // }
   },
-  mounted() {
-    // this.oneDay();
-  },
-  watched() {
-  }
 }
 </script>
 

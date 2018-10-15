@@ -19,10 +19,13 @@
           class="button--grey">GitHub</a>
       </div>
     </div> -->
-    <Winter :weatherData=weatherData></Winter>
-    <Spring :weatherData=weatherData></Spring>
-    <Summer :weatherData=weatherData></Summer>
-    <Fall :weatherData=weatherData></Fall>
+    <!-- <div v-if="searchCommitted === true"> -->
+
+      <Winter :weatherData=weatherData :searchCommitted=searchCommitted ></Winter>
+      <Spring :weatherData=weatherData :searchCommitted=searchCommitted ></Spring>
+      <Summer :weatherData=weatherData :searchCommitted=searchCommitted ></Summer>
+      <Fall :weatherData=weatherData :searchCommitted=searchCommitted ></Fall>
+    <!-- </div> -->
     <div class="search__box">
       <input type="search" class="search__input" v-on:keyup.enter="getWeather" placeholder="Enter City"/>
       <span class="search__icon" @click="getWeather"></span>
@@ -35,7 +38,7 @@
         <span class="ham ham-bottom"></span>
       </div>
     </div>
-    <!-- <span class="button-row">
+    <span class="button-row">
       <button @click="prevSlide" class="slide-trigger prev">-</button>
       <div class="button-wrapper" @click="selectSlide">
         <span class="button-title">Winter</span>
@@ -54,7 +57,7 @@
         <button class="buttons slide-trigger last-button" id="button-4"></button>
       </div>
       <button @click="nextSlide" class="next slide-trigger">+</button>
-    </span> -->
+    </span>
     <!-- <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
     <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>  -->
     <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>  -->
@@ -82,21 +85,21 @@ export default {
   data() {
     return {
       menuOpen: false,
+      searchCommitted: false,
       currentWeather: "snowy",
-      monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
       weatherData: {},
       weatherOne: {},
       weatherFive: []
     }
   },
-  mounted() {
-    let city = "detroit";
-    let vm = this;
-    $.getJSON('http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',us&units=imperial&APPID=f3ca74b01a93f4ec83050fe63dd88908', (data) => {
-      vm.weatherData = data;
-      console.log(vm.weatherData);
-    });
-  },
+  // created() {
+  //   let city = "detroit";
+  //   let vm = this;
+  //   $.getJSON('http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',us&units=imperial&APPID=f3ca74b01a93f4ec83050fe63dd88908', (data) => {
+  //     vm.weatherData = data;
+  //     console.log(vm.weatherData);
+  //   });
+  // },
   methods: {
     toTitleCase: function(str) {
       return str.replace(/\w\S*/g, function(txt) {
@@ -116,7 +119,23 @@ export default {
       $.getJSON('http://api.openweathermap.org/data/2.5/forecast?q=' + city + ',us&units=imperial&APPID=f3ca74b01a93f4ec83050fe63dd88908', (data) => {
         vm.weatherData = data;
         console.log(vm.weatherData);
+        this.searchCommitted = true;
+        let weatherId = vm.weatherData.list[0].weather[0].id;
+        // if (200 <= weatherId && weatherId < 600) {
+      	// 	return "rainy";
+      	// } else if (600 <= weatherId && weatherId < 800) {
+      	// 	return "snowy";
+      	// } else if (800 <= weatherId && weatherId < 802) {
+      	// 	return "sunny";
+      	// } else if (802 <= weatherId && weatherId < 804) {
+      	// 	return "partly-cloudy";
+      	// } else if (804 <= weatherId && weatherId < 900) {
+      	// 	return "cloudy";
+      	// } else {
+      	// 	return "clear";
+      	// }
       });
+
     },
     toggleMenu: function(e) {
       if (!this.menuOpen) {

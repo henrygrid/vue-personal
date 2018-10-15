@@ -3,8 +3,38 @@
     <div class="home--wrapper">
       <div class="home__content">
         <section class="home__content__header">
-          <h1 class="home__content__header__heading">Henry Morrow - Web Developer</h1>
+          <div v-if="$props.searchCommitted === true" class="spring__day__wrapper">
+            <div class="spring__day__toggle__container">
+              <span class="spring__day__one__title">1 Day</span>
+              <label class="spring__switch" for="checkbox">
+                <input type="checkbox" id="spring-checkbox" @click="viewToggle" />
+                <div class="spring__slider round"></div>
+              </label>
+              <span class="spring__day__five__title">5 Day</span>
+            </div>
+            <h1 class="spring__city">{{ weather.weatherData.city.name }}</h1>
+            <ul v-if="viewStatus === 1" :class=" [ viewStatus < 3 ? 'one-day-list': 'five-day-list'] + ' spring__day__list'">
+              <li class="spring__day__list__item">
+                <h1 class="spring__day__date">{{ getWeatherMonth($props.weatherData.list[0].dt_txt) }} {{ getWeatherDay($props.weatherData.list[0].dt_txt) }}</h1>
+                <div v-bind:class="weatherClass + ' spring__day__image'"></div>
+                <p class="spring__day__temp--high">{{ Math.floor($props.weatherData.list[0].main.temp) }} &#8457;</p>
+                <p class="spring__day__temp--low">{{ Math.floor($props.weatherData.list[0].wind.speed) }} mph</p>
+              </li>
+            </ul>
+            <ul v-else-if="viewStatus === 5" :class=" [ viewStatus < 3 ? 'one-day-list': 'five-day-list'] + ' spring__day__list'">
+              <li v-for="(day, index) in getFiveDay($props.weatherData.list)" v-bind:key="`day-${index}`"  class="spring__day__list__item">
+                <div>
+                  <h1 class="spring__day__date">{{ getWeatherMonth(day.dt_txt) }} {{ getWeatherDay(day.dt_txt) }}</h1>
+                  <div v-bind:class="getWeatherClass(day.weather[0].id) + ' spring__day__image'"></div>
+                  <p class="spring__day__temp--high">{{ Math.floor(day.main.temp) }} &#8457;</p>
+                  <p class="spring__day__temp--low">{{ Math.floor(day.wind.speed) }} mph</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <!-- <h1 class="home__content__header__heading">Henry Morrow - Web Developer</h1>
           <p class="home__content__header__description">Your year-round source for a great web presence.</p>
+          <a class="home__content__header__link" href="">View my work</a> -->
           <!-- <div class="menu__button">
             <div class="snowflake"></div>
             <div class="ham-container" @click="toggleMenu">
@@ -14,11 +44,11 @@
             </div>
           </div> -->
         </section>
-        <section class="home__content__intro">
+        <!-- <section class="home__content__intro">
           <div class="home__content__intro__container">
             <h1 class="home__content__intro__heading">You wanna know how I got them? So I had a wife. She was beautiful, like you, who tells me I worry too much, who tells me I ought to smile more, who gambles and gets in deep with the sharks. Hey. One day they carve her face. And we have no money for surgeries. She can't take it. I just wanna see her smile again. I just want her to know that I don't care about the scars. So, I do this to myself. And you know what? She can't stand the sight of me. She leaves. Now I see the funny side. Now I'm always smiling.</h1>
           </div>
-        </section>
+        </section> -->
         <footer class="spring-footer home__content__footer">
 
         </footer>
@@ -245,6 +275,58 @@
 <script>
 export default {
   name: "Spring",
+  props: ["weatherData", "searchCommitted"],
+  data() {
+    return {
+      menuOpen: false,
+      weatherClass: "rainy",
+      weatherClasses: [],
+      monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      viewStatus: 1,
+      weather: this.$props,
+      // weatherDays: this.$props.weatherData.list[0]
+    }
+  },
+  methods: {
+    getWeatherClass: function(weatherId) {
+      if (200 <= weatherId && weatherId < 600) {
+    		return "rainy";
+    	} else if (600 <= weatherId && weatherId < 800) {
+    		return "snowy";
+    	} else if (800 <= weatherId && weatherId < 802) {
+    		return "sunny";
+    	} else if (802 <= weatherId && weatherId < 804) {
+    		return "partly-cloudy";
+    	} else if (804 <= weatherId && weatherId < 900) {
+    		return "cloudy";
+    	} else {
+    		return "clear";
+    	}
+    },
+    viewToggle: function() {
+      if(this.viewStatus === 5) {
+        this.viewStatus = 1;
+      } else if (this.viewStatus === 1) {
+        this.viewStatus = 5;
+      }
+    },
+    getWeatherMonth: function(dateText) {
+      let date = new Date(dateText);
+      return this.monthNames[date.getMonth()];
+    },
+    getWeatherDay: function(dateText) {
+      let date = new Date(dateText);
+      return date.getDate();
+    },
+    getFiveDay: function(sampleArr) {
+      let arr = sampleArr;
+      let arr2 = [];
+      for (let i = 7; i < arr.length; i += 8) {
+        arr2.push(arr[i]);
+      }
+      return arr2;
+    }
+  },
 }
 </script>
 
